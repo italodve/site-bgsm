@@ -1,4 +1,4 @@
-# Roteiro de imagens do site BGSM (Google Flow)
+# Roteiro de imagens do site Martins Imóveis (Google Flow)
 
 As imagens do site em `public/*.jpg` foram geradas com este roteiro no
 Google Flow. Para regenerar ou trocar alguma, use o script abaixo e
@@ -15,7 +15,7 @@ nome indicado (se vier em PNG, converta ou renomeie).
 
 ```
 Você vai gerar 9 imagens fotorrealistas para o site de uma imobiliária
-brasileira chamada BGSM Negócios Imobiliários. Gere UMA imagem por vez,
+brasileira chamada Martins Imóveis. Gere UMA imagem por vez,
 na ordem, seguindo o estilo global e o prompt específico de cada uma.
 
 ESTILO GLOBAL (aplique em todas as imagens):
@@ -95,7 +95,7 @@ tarde, clima de conquista.
 | Arquivo | Proporção | Onde aparece |
 | --- | --- | --- |
 | `hero.jpg` | 3:4 vertical | Topo do site (moldura em arco) |
-| `sobre.jpg` | 4:3 | Seção "A BGSM" |
+| `sobre.jpg` | 4:3 | Seção "Quem somos" |
 | `servico-compra.jpg` | 4:3 | Card Serviços · Compra |
 | `servico-venda.jpg` | 4:3 | Card Serviços · Venda |
 | `servico-locacao.jpg` | 4:3 | Card Serviços · Locação |

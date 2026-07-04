@@ -1,13 +1,13 @@
-# Site BGSM — Plataforma Imobiliária Integrada
+# Site Martins Imóveis — Plataforma Imobiliária Integrada
 
-Site da **BGSM Negócios Imobiliários**: site público + painel de
+Site da **Martins Imóveis**: site público + painel de
 imóveis/leads + agente de IA (Claude) em **um único serviço com front-end e
 back-end integrados**. Tudo vive num banco de dados próprio (SQLite) no
 mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 
 | Rota | O que é |
 | --- | --- |
-| `/` | Site público da BGSM, com chatbot |
+| `/` | Site público da Martins Imóveis, com chatbot |
 | `/painel` | Dashboard: cadastra imóveis no site e recebe os leads do agente (login) |
 | `/api/imoveis` | API pública que alimenta os cards de imóveis do site |
 | `/chat`, `/chat/session`, `/lead`, `/health` | API do agente de IA (Claude) |
@@ -30,9 +30,9 @@ mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 
 ## Personalização pendente
 
-- **WhatsApp**: o número oficial ainda é placeholder (`5511999999999`).
-  Troque em `public/script.js` (constante `numeroEmpresa`), nos links
-  `wa.me` de `public/index.html` e na variável `WHATSAPP_EMPRESA` do `.env`.
+- **WhatsApp**: número oficial `+55 11 98231-3938` já aplicado. Para
+  trocar no futuro, ajuste `public/script.js` (constante `numeroEmpresa`),
+  os links `wa.me` de `public/index.html` e `WHATSAPP_EMPRESA` no `.env`.
 - **Imagens**: as fotos em `public/*.jpg` foram geradas por IA com o
   roteiro de [`IMAGENS.md`](IMAGENS.md). Para trocar alguma, substitua o
   arquivo mantendo o mesmo nome.
@@ -88,7 +88,7 @@ O banco é criado automaticamente em `./data/imob.db` na primeira execução.
    - `CHAT_SESSION_SECRET` — segredo longo e aleatório
    - `PAINEL_USER` / `PAINEL_PASSWORD` — credenciais do painel
      (`PAINEL_PASSWORD` é obrigatória; sem ela o painel fica bloqueado)
-   - `WHATSAPP_EMPRESA` — WhatsApp oficial da BGSM (dígitos com DDI)
+   - `WHATSAPP_EMPRESA` — WhatsApp oficial da Martins Imóveis (dígitos com DDI)
    - `DATA_DIR=/data` — aponta o banco para o Volume
 4. O Railway detecta Node.js e usa o `railway.json` (start `npm start`,
    healthcheck em `/health`).
