@@ -33,7 +33,7 @@ Nome: <nome>
 Interesse: <comprar | vender | alugar | anunciar para locação>
 Tipo de imóvel: <apartamento | casa | comercial>
 Região: <bairro/região de interesse>
-Valor: <faixa de valor aproximada>
+Valor: <faixa de valor aproximada, sempre em números completos (ex.: 100.000 ou 100000), nunca abreviada como "100 mil">
 Contato: <telefone/WhatsApp do cliente>
 Imóvel: <título do imóvel do catálogo pelo qual o cliente se interessou, se houver>
 - Não use asteriscos nem qualquer formatação nesse resumo; apenas "Rótulo: valor".

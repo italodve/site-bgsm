@@ -62,12 +62,28 @@ const leadName = (fields) => {
   return (nome ? nome.value : fields[0] && fields[0].value) || "Lead";
 };
 
-// Tags com os demais dados (valor formatado como moeda).
+// Formata o valor do lead como moeda APENAS quando ele é puramente numérico
+// (ex.: "100000", "100.000", "R$ 100.000,00"). Texto como "100 mil" ou
+// "entre 300 e 400 mil" é exibido como veio — antes, remover os não-dígitos
+// transformava "100 mil" em R$ 100.
+const formatLeadValor = (raw) => {
+  const s = String(raw ?? "").trim();
+  if (!/^R?\$?\s*[\d.,\s]+$/i.test(s)) return s;
+  const digits = s
+    .replace(/[^\d,]/g, "")
+    .replace(/,\d{1,2}$/, "") // descarta centavos (",00")
+    .replace(/,/g, "");
+  const n = Number(digits);
+  if (!digits || Number.isNaN(n)) return s;
+  return formatBRL(n);
+};
+
+// Tags com os demais dados (valor formatado como moeda quando numérico).
 const leadTagsHtml = (fields) =>
   fields
     .filter((f) => !/nome/i.test(f.label))
     .map((f) => {
-      const value = /valor|pre[çc]o/i.test(f.label) ? formatBRL(f.value.replace(/[^\d]/g, "")) : f.value;
+      const value = /valor|pre[çc]o/i.test(f.label) ? formatLeadValor(f.value) : f.value;
       return `<span class="pl-tag">${escapeHtml(value)}</span>`;
     })
     .join("");
