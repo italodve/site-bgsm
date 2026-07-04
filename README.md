@@ -33,9 +33,9 @@ mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 - **WhatsApp**: o número oficial ainda é placeholder (`5511999999999`).
   Troque em `public/script.js` (constante `numeroEmpresa`), nos links
   `wa.me` de `public/index.html` e na variável `WHATSAPP_EMPRESA` do `.env`.
-- **Imagens**: `public/*.png` são placeholders (gradiente). Substitua pelos
-  arquivos gerados conforme o roteiro em [`IMAGENS.md`](IMAGENS.md),
-  mantendo os mesmos nomes de arquivo.
+- **Imagens**: as fotos em `public/*.jpg` foram geradas por IA com o
+  roteiro de [`IMAGENS.md`](IMAGENS.md). Para trocar alguma, substitua o
+  arquivo mantendo o mesmo nome.
 - **Textos**: cidade/região de atuação estão genéricos ("São Paulo e
   região") em `public/index.html` e no prompt do agente (`src/agent.js`).
 

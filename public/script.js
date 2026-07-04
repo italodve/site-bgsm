@@ -492,9 +492,9 @@ const formatPreco = (valor, finalidade) => {
 // Imagem de fallback conforme o tipo, quando o imóvel não tem foto própria.
 const fotoPorTipo = (tipo) => {
   const t = String(tipo || "").toLowerCase();
-  if (t.includes("apart")) return "imovel-apartamento.png";
-  if (t.includes("comerc") || t.includes("sala") || t.includes("loja")) return "imovel-comercial.png";
-  return "imovel-casa.png";
+  if (t.includes("apart")) return "imovel-apartamento.jpg";
+  if (t.includes("comerc") || t.includes("sala") || t.includes("loja")) return "imovel-comercial.jpg";
+  return "imovel-casa.jpg";
 };
 
 // Lê os imóveis da API do próprio servidor (alimentada pelo painel).
