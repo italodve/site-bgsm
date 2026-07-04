@@ -1,0 +1,21 @@
+{
+  "name": "site-bgsm",
+  "version": "1.0.0",
+  "description": "Plataforma imobiliária integrada da BGSM Negócios Imobiliários: site público + painel de imóveis/leads + agente de IA (Claude), com banco SQLite e deploy único no Railway",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.85.0",
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0"
+  }
+}

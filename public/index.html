@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#103527" />
+    <meta
+      name="description"
+      content="BGSM Negócios Imobiliários: compra, venda e locação de imóveis residenciais e comerciais em São Paulo e região, com atendimento consultivo e negociação segura do início ao fim."
+    />
+    <title>BGSM · Negócios Imobiliários</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inicio">Ir para o conteúdo</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="BGSM — Negócios Imobiliários">
+        <span class="brand-symbol" aria-hidden="true">B</span>
+        <span class="brand-name">
+          <strong>BGSM</strong>
+          <small>Negócios Imobiliários</small>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-button>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" data-nav aria-label="Navegação principal">
+        <a href="#imoveis">Imóveis</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">A BGSM</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="header-cta" href="#contato">Fale com a BGSM</a>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-inner">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Negócios imobiliários em São Paulo e região</p>
+            <h1>O imóvel certo, no valor certo, com quem entende de negociação.</h1>
+            <p class="hero-lead">
+              A BGSM cuida da compra, venda e locação do seu imóvel com atendimento consultivo, avaliação de mercado e acompanhamento completo — do primeiro contato à assinatura do contrato.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#imoveis">Ver imóveis disponíveis</a>
+              <a class="button ghost" href="#contato">Anunciar meu imóvel</a>
+            </div>
+            <ul class="hero-points">
+              <li>Atendimento direto e sem burocracia</li>
+              <li>Resposta rápida pelo WhatsApp</li>
+              <li>Suporte em documentação e financiamento</li>
+            </ul>
+          </div>
+
+          <div class="hero-media" data-reveal>
+            <div class="hero-frame">
+              <img src="hero.png" alt="Fachada de residência moderna representando o portfólio da BGSM" />
+            </div>
+            <div class="hero-card">
+              <strong>Compra · Venda · Locação</strong>
+              <span>Residencial e comercial, do anúncio ao contrato</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pillars" aria-label="Diferenciais" data-reveal>
+        <article>
+          <span class="pillar-index">I</span>
+          <h3>Avaliação realista</h3>
+          <p>Análise de mercado para precificar o imóvel pelo valor justo — sem inflar, sem desvalorizar.</p>
+        </article>
+        <article>
+          <span class="pillar-index">II</span>
+          <h3>Curadoria de imóveis</h3>
+          <p>Seleção alinhada ao seu perfil e orçamento, para você visitar só o que faz sentido.</p>
+        </article>
+        <article>
+          <span class="pillar-index">III</span>
+          <h3>Negociação conduzida</h3>
+          <p>Condução profissional da proposta ao aceite, protegendo o seu interesse em cada etapa.</p>
+        </article>
+        <article>
+          <span class="pillar-index">IV</span>
+          <h3>Papelada resolvida</h3>
+          <p>Apoio em documentação, certidões e financiamento até a assinatura do contrato.</p>
+        </article>
+      </section>
+
+      <section class="section properties-section" id="imoveis">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow light">Portfólio</p>
+            <h2>Imóveis selecionados pela BGSM.</h2>
+          </div>
+          <p class="section-lead">
+            O portfólio muda toda semana. Não encontrou o que procura? Fale com a equipe — buscamos o imóvel certo para o seu perfil.
+          </p>
+        </div>
+
+        <!--
+          Os imóveis são carregados dinamicamente da API /api/imoveis
+          (cadastrados no painel /painel) por script.js. Os 3 cards abaixo
+          são um FALLBACK: aparecem apenas se não houver imóveis cadastrados
+          ou a API estiver indisponível.
+        -->
+        <div class="properties-panel" data-reveal>
+          <div class="properties" data-properties>
+            <article class="property-card">
+              <img src="imovel-casa.png" alt="Casa moderna com jardim em condomínio" />
+              <div class="property-info">
+                <div class="property-heading">
+                  <span class="property-tag">Venda</span>
+                  <span class="property-location">Casa · Zona Oeste, São Paulo</span>
+                </div>
+                <h3>Casa com quintal em rua tranquila</h3>
+                <ul class="property-specs">
+                  <li>3 quartos</li>
+                  <li>2 vagas</li>
+                  <li>160 m²</li>
+                </ul>
+              </div>
+              <div class="property-cta">
+                <strong class="property-price">R$ 720.000</strong>
+                <a class="button ghost small" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20na%20casa%20com%20quintal%20(Zona%20Oeste%2C%20S%C3%A3o%20Paulo)." target="_blank" rel="noopener noreferrer">Falar sobre este imóvel</a>
+              </div>
+            </article>
+
+            <article class="property-card">
+              <img src="imovel-apartamento.png" alt="Sala de apartamento claro e reformado" />
+              <div class="property-info">
+                <div class="property-heading">
+                  <span class="property-tag">Venda</span>
+                  <span class="property-location">Apartamento · Centro, São Paulo</span>
+                </div>
+                <h3>Apartamento reformado e bem iluminado</h3>
+                <ul class="property-specs">
+                  <li>2 quartos</li>
+                  <li>1 vaga</li>
+                  <li>64 m²</li>
+                </ul>
+              </div>
+              <div class="property-cta">
+                <strong class="property-price">R$ 390.000</strong>
+                <a class="button ghost small" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20apartamento%20reformado%20(Centro%2C%20S%C3%A3o%20Paulo)." target="_blank" rel="noopener noreferrer">Falar sobre este imóvel</a>
+              </div>
+            </article>
+
+            <article class="property-card">
+              <img src="imovel-comercial.png" alt="Sala comercial ampla com vitrine" />
+              <div class="property-info">
+                <div class="property-heading">
+                  <span class="property-tag">Locação</span>
+                  <span class="property-location">Comercial · Centro, São Paulo</span>
+                </div>
+                <h3>Loja com vitrine pronta para uso</h3>
+                <ul class="property-specs">
+                  <li>52 m²</li>
+                  <li>Ponto de rua</li>
+                </ul>
+              </div>
+              <div class="property-cta">
+                <strong class="property-price">R$ 2.800/mês</strong>
+                <a class="button ghost small" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20na%20loja%20com%20vitrine%20(Centro%2C%20S%C3%A3o%20Paulo)." target="_blank" rel="noopener noreferrer">Falar sobre este imóvel</a>
+              </div>
+            </article>
+          </div>
+
+          <a class="text-link light" href="#contato">Quer anunciar o seu imóvel no portfólio? Fale com a BGSM</a>
+        </div>
+      </section>
+
+      <section class="section" id="servicos">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Serviços</p>
+            <h2>Um parceiro para cada momento do seu imóvel.</h2>
+          </div>
+          <p class="section-lead">
+            Da primeira visita à entrega das chaves, a BGSM assume as etapas que dão trabalho — para você decidir com calma e segurança.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service-card" data-reveal>
+            <img src="servico-compra.png" alt="Corretor apresentando imóvel a um casal durante visita" />
+            <div>
+              <span>01 · Compra</span>
+              <h3>Compre sem sustos</h3>
+              <p>Curadoria de imóveis no seu perfil, visitas acompanhadas, análise de documentação e negociação para fechar no valor justo.</p>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <img src="servico-venda.png" alt="Reunião de assinatura de contrato de venda de imóvel" />
+            <div>
+              <span>02 · Venda</span>
+              <h3>Venda no prazo e no preço</h3>
+              <p>Avaliação de mercado, fotos e anúncio profissionais, filtro de compradores qualificados e condução da proposta ao contrato.</p>
+            </div>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <img src="servico-locacao.png" alt="Entrega de chaves de imóvel para locação" />
+            <div>
+              <span>03 · Locação</span>
+              <h3>Locação sem dor de cabeça</h3>
+              <p>Seleção criteriosa de inquilinos ou imóveis, contrato bem amarrado e suporte durante toda a locação, para os dois lados.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre">
+        <div class="about-media" data-reveal>
+          <img src="sobre.png" alt="Equipe da BGSM em reunião no escritório" />
+        </div>
+        <div class="about-copy" data-reveal>
+          <p class="eyebrow">A BGSM</p>
+          <h2>Negócio imobiliário é decisão de vida. Tratamos como tal.</h2>
+          <p>
+            A BGSM Negócios Imobiliários nasceu para fazer diferente: menos pressa para "bater meta", mais atenção ao que o cliente realmente precisa. Cada atendimento começa com uma conversa honesta sobre objetivo, orçamento e prazo — e segue com um plano claro até o contrato.
+          </p>
+          <ul class="about-list">
+            <li><strong>Transparência</strong> — você sabe o status da negociação em cada etapa.</li>
+            <li><strong>Método</strong> — avaliação, divulgação e negociação seguem processo, não improviso.</li>
+            <li><strong>Proximidade</strong> — um canal direto no WhatsApp, sem labirinto de atendentes.</li>
+          </ul>
+          <a class="button primary" href="#contato">Conversar com a equipe</a>
+        </div>
+      </section>
+
+      <section class="section method-section">
+        <div class="section-heading narrow" data-reveal>
+          <p class="eyebrow">Como trabalhamos</p>
+          <h2>Quatro passos entre o "quero" e as chaves na mão.</h2>
+        </div>
+
+        <div class="method-grid">
+          <article data-reveal>
+            <span>01</span>
+            <h3>Diagnóstico</h3>
+            <p>Entendemos objetivo, orçamento, região e prazo — seja para comprar, vender ou alugar.</p>
+          </article>
+          <article data-reveal>
+            <span>02</span>
+            <h3>Plano de ação</h3>
+            <p>Definimos preço, estratégia de divulgação ou roteiro de visitas, com expectativas realistas.</p>
+          </article>
+          <article data-reveal>
+            <span>03</span>
+            <h3>Negociação</h3>
+            <p>Conduzimos propostas e contrapropostas protegendo o seu interesse, com comunicação constante.</p>
+          </article>
+          <article data-reveal>
+            <span>04</span>
+            <h3>Fechamento</h3>
+            <p>Documentação, financiamento e contrato revisados até a assinatura — e as chaves na sua mão.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="testimonial-section">
+        <img src="depoimento.png" alt="Cliente recebendo as chaves do imóvel comprado com a BGSM" data-reveal />
+        <blockquote data-reveal>
+          <p>"A BGSM assumiu tudo: avaliou, anunciou, filtrou os interessados e negociou. Vendi em poucas semanas, sem uma única dor de cabeça com papelada."</p>
+          <cite>Cliente BGSM · venda de apartamento</cite>
+        </blockquote>
+      </section>
+
+      <section class="contact-section" id="contato">
+        <div class="contact-copy" data-reveal>
+          <p class="eyebrow light">Contato</p>
+          <h2>Conte o que você precisa. A BGSM cuida do resto.</h2>
+          <p>
+            Envie uma mensagem dizendo se quer comprar, vender ou alugar, e a região de interesse. A equipe retorna com uma conversa sem compromisso.
+          </p>
+          <ul class="contact-details">
+            <li>
+              <span>WhatsApp / Telefone</span>
+              <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" data-whatsapp-link>+55 11 99999-9999</a>
+            </li>
+            <li>
+              <span>Atendimento</span>
+              <a href="tel:+5511999999999">Segunda a sábado · resposta rápida</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form" data-reveal>
+          <label>
+            Nome
+            <input type="text" name="nome" placeholder="Seu nome" required />
+          </label>
+          <label>
+            Telefone
+            <input type="tel" name="telefone" placeholder="WhatsApp para contato" required />
+          </label>
+          <label>
+            Tipo de interesse
+            <select name="interesse" required>
+              <option value="">Selecione uma opção</option>
+              <option>Comprar um imóvel</option>
+              <option>Vender um imóvel</option>
+              <option>Alugar um imóvel</option>
+              <option>Anunciar imóvel para locação</option>
+              <option>Avaliação de imóvel</option>
+            </select>
+          </label>
+          <label>
+            Mensagem
+            <textarea name="mensagem" rows="4" placeholder="Descreva o imóvel ou o que você procura (região, tipo, valor aproximado)"></textarea>
+          </label>
+          <button class="button primary" type="submit">Enviar para o WhatsApp</button>
+          <p class="form-note">Ao enviar, abrimos uma mensagem pronta no WhatsApp da BGSM.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <strong>BGSM</strong>
+        <span>Negócios Imobiliários — São Paulo e região</span>
+      </div>
+      <div class="footer-meta">
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">+55 11 99999-9999</a>
+        <a href="#inicio">Voltar ao topo</a>
+        <a href="/painel/">Painel</a>
+      </div>
+    </footer>
+
+    <aside class="chatbot" data-chatbot aria-live="polite">
+      <button class="chatbot-toggle" type="button" aria-label="Abrir chat" data-chatbot-toggle>
+        <span class="chatbot-toggle-dot"></span>
+        <span>Chat</span>
+      </button>
+
+      <section class="chatbot-panel" aria-label="Chat de atendimento da BGSM" data-chatbot-panel>
+        <div class="chatbot-header">
+          <div>
+            <strong>Atendimento · BGSM</strong>
+            <span>Assistente virtual</span>
+          </div>
+          <button type="button" aria-label="Fechar chat" data-chatbot-close>×</button>
+        </div>
+
+        <div class="chatbot-body" data-chatbot-body>
+          <div class="chat-message bot" data-chatbot-question>
+            Olá! Sou o assistente da BGSM. Quer comprar, vender ou alugar um imóvel?
+          </div>
+        </div>
+
+        <form class="chatbot-form" data-chatbot-form>
+          <input type="text" name="chatInput" autocomplete="off" placeholder="Digite sua resposta" data-chatbot-input required />
+          <button type="submit">Enviar</button>
+        </form>
+
+        <p class="chatbot-privacy">Seus dados serão usados apenas para retorno do atendimento.</p>
+      </section>
+    </aside>
+  </body>
+</html>

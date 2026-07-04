@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Painel BGSM Negócios Imobiliários: cadastro de imóveis e gestão de leads." />
+    <title>BGSM · Painel de Imóveis e Leads</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260702" />
+    <script src="app.js?v=20260702" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar" data-sidebar>
+      <div class="brand">
+        <span class="brand-symbol">BGSM</span>
+        <span class="brand-text">Painel</span>
+      </div>
+      <nav class="side-nav">
+        <button class="side-link is-active" data-view-link="overview" type="button">Visão geral</button>
+        <button class="side-link" data-view-link="properties" type="button">Imóveis</button>
+        <button class="side-link" data-view-link="leads" type="button">Leads</button>
+      </nav>
+      <div class="side-foot">
+        <span class="conn-dot" data-conn-dot></span>
+        <span data-conn-label>Conectando…</span>
+      </div>
+      <a class="side-foot side-logout" href="/painel/logout">Sair</a>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" type="button" aria-label="Menu" data-menu-toggle>☰</button>
+        <h1 data-view-title>Visão geral</h1>
+        <div class="topbar-actions">
+          <button class="button ghost" type="button" data-refresh>Atualizar</button>
+          <button class="button primary" type="button" data-new-property>+ Novo imóvel</button>
+        </div>
+      </header>
+
+      <!-- VISÃO GERAL -->
+      <section class="view is-active" data-view="overview">
+        <div class="kpi-grid">
+          <article class="kpi-card">
+            <span>Imóveis cadastrados</span>
+            <strong data-kpi="properties">0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Disponíveis</span>
+            <strong data-kpi="available">0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Total de leads</span>
+            <strong data-kpi="leads">0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Leads novos</span>
+            <strong data-kpi="newLeads">0</strong>
+          </article>
+        </div>
+
+        <section class="panel">
+          <header class="panel-head"><h2>Imóveis por status</h2></header>
+          <div class="bar-list" data-status-chart></div>
+        </section>
+
+        <section class="panel">
+          <header class="panel-head">
+            <h2>Funil de leads</h2>
+            <button class="text-link" data-view-link="leads" type="button">Gerenciar leads</button>
+          </header>
+          <div class="pipeline" data-pipeline></div>
+        </section>
+      </section>
+
+      <!-- IMÓVEIS -->
+      <section class="view" data-view="properties">
+        <div class="toolbar">
+          <input type="search" placeholder="Buscar por título, bairro, cidade…" data-property-search />
+          <select data-property-filter>
+            <option value="">Todos os status</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Reservado">Reservado</option>
+            <option value="Vendido">Vendido</option>
+            <option value="Locado">Locado</option>
+          </select>
+          <button class="button ghost" type="button" data-export-properties>Exportar CSV</button>
+        </div>
+        <div class="property-grid" data-property-grid></div>
+        <p class="empty-state" data-property-empty hidden>Nenhum imóvel cadastrado ainda. Clique em "Novo imóvel" para começar.</p>
+      </section>
+
+      <!-- LEADS -->
+      <section class="view" data-view="leads">
+        <div class="toolbar">
+          <input type="search" placeholder="Buscar lead…" data-lead-search />
+          <select data-lead-filter>
+            <option value="">Todos</option>
+            <option value="novo">Lead novo</option>
+            <option value="aquecido">Lead aquecido</option>
+            <option value="vendido">Lead vendido</option>
+          </select>
+          <button class="button ghost" type="button" data-export-leads>Exportar CSV</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Dados do lead</th>
+                <th>Origem</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody data-lead-rows></tbody>
+          </table>
+        </div>
+        <p class="empty-state" data-lead-empty hidden>Nenhum lead ainda. Eles chegam automaticamente pelo chat do site.</p>
+      </section>
+    </div>
+
+    <!-- MODAL DE IMÓVEL -->
+    <div class="modal" data-modal hidden>
+      <div class="modal-card">
+        <header class="modal-head">
+          <h2 data-modal-title>Novo imóvel</h2>
+          <button type="button" aria-label="Fechar" data-modal-close>×</button>
+        </header>
+        <form class="property-form" data-property-form>
+          <input type="hidden" name="id" />
+          <div class="form-grid">
+            <label>Título<input type="text" name="titulo" placeholder="Ex.: Apartamento 2 quartos no Centro" required /></label>
+            <label>Tipo
+              <select name="tipo" required>
+                <option>Apartamento</option>
+                <option>Casa</option>
+                <option>Comercial</option>
+                <option>Terreno</option>
+              </select>
+            </label>
+            <label>Finalidade
+              <select name="finalidade" required>
+                <option>Venda</option>
+                <option>Locação</option>
+              </select>
+            </label>
+            <label>Status
+              <select name="status" required>
+                <option>Disponível</option>
+                <option>Reservado</option>
+                <option>Vendido</option>
+                <option>Locado</option>
+              </select>
+            </label>
+            <label>Preço (R$)<input type="number" name="preco" min="0" step="1" placeholder="450000" /></label>
+            <label>Bairro<input type="text" name="bairro" placeholder="Centro" /></label>
+            <label>Cidade<input type="text" name="cidade" placeholder="Itapevi" /></label>
+            <label>Quartos<input type="number" name="quartos" min="0" step="1" placeholder="2" /></label>
+            <label>Banheiros<input type="number" name="banheiros" min="0" step="1" placeholder="1" /></label>
+            <label>Vagas<input type="number" name="vagas" min="0" step="1" placeholder="1" /></label>
+            <label>Área (m²)<input type="number" name="area" min="0" step="1" placeholder="65" /></label>
+            <label class="full">Foto do imóvel (arquivo)
+              <input type="file" name="fotoArquivo" accept="image/jpeg,image/png,image/webp,image/gif" data-foto-file />
+              <small class="field-hint" data-foto-hint>JPG, PNG, WebP ou GIF até 5 MB. Enviar um arquivo substitui a foto atual.</small>
+            </label>
+            <label class="full">ou URL da foto<input type="url" name="foto" placeholder="https://… (opcional, se não enviar arquivo)" /></label>
+          </div>
+          <label class="full">Descrição<textarea name="descricao" rows="3" placeholder="Detalhes do imóvel"></textarea></label>
+          <div class="form-actions">
+            <button type="button" class="button ghost" data-modal-close>Cancelar</button>
+            <button type="submit" class="button primary">Salvar imóvel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast" data-toast hidden></div>
+  </body>
+</html>
