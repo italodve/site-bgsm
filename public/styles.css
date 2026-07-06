@@ -1,27 +1,27 @@
 /* ============================================================
-   BGSM Negócios Imobiliários — folha de estilos do site público
-   Identidade: verde-esmeralda profundo + bronze sobre linho claro,
+   V Prado Imóveis — folha de estilos do site público
+   Identidade: grafite profundo + dourado (logo V Prado) sobre linho claro,
    títulos em serifa (Fraunces) e texto em Manrope.
    ============================================================ */
 
 :root {
-  --green-950: #081b14;
-  --green-900: #0f2e22;
-  --green-800: #14382b;
-  --green-700: #1c4a38;
-  --green-100: #dcebe2;
-  --bronze-600: #b0742c;
-  --bronze-500: #c1893e;
-  --bronze-300: #d9a85a;
+  --dark-950: #0c0d10;
+  --dark-900: #15171c;
+  --dark-800: #1d2026;
+  --dark-700: #2a2e36;
+  --dark-100: #d9dbe0;
+  --bronze-600: #a8873d;
+  --bronze-500: #bd9c4b;
+  --bronze-300: #d8bc72;
   --linen: #f7f3ec;
   --linen-soft: #efe8db;
-  --ink: #1d2521;
-  --ink-soft: #55635c;
+  --ink: #1e2023;
+  --ink-soft: #5a5e66;
   --white: #ffffff;
   --radius-lg: 22px;
   --radius-md: 14px;
-  --shadow-soft: 0 18px 48px rgba(15, 46, 34, 0.12);
-  --shadow-card: 0 10px 30px rgba(15, 46, 34, 0.1);
+  --shadow-soft: 0 18px 48px rgba(21, 23, 28, 0.12);
+  --shadow-card: 0 10px 30px rgba(21, 23, 28, 0.1);
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
 }
@@ -59,14 +59,14 @@ h3 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.15;
-  color: var(--green-900);
+  color: var(--dark-900);
 }
 
 .skip-link {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--green-900);
+  background: var(--dark-900);
   color: var(--white);
   padding: 10px 18px;
   border-radius: 0 0 10px 0;
@@ -95,24 +95,24 @@ h3 {
 }
 
 .button.primary {
-  background: var(--green-800);
+  background: var(--dark-800);
   color: var(--linen);
-  box-shadow: 0 10px 24px rgba(20, 56, 43, 0.28);
+  box-shadow: 0 10px 24px rgba(29, 32, 38, 0.28);
 }
 
 .button.primary:hover {
-  background: var(--green-700);
+  background: var(--dark-700);
   transform: translateY(-2px);
 }
 
 .button.ghost {
-  border-color: var(--green-800);
-  color: var(--green-800);
+  border-color: var(--dark-800);
+  color: var(--dark-800);
   background: transparent;
 }
 
 .button.ghost:hover {
-  background: var(--green-800);
+  background: var(--dark-800);
   color: var(--linen);
 }
 
@@ -132,7 +132,7 @@ h3 {
 }
 
 .text-link:hover {
-  color: var(--green-800);
+  color: var(--dark-800);
 }
 
 .text-link.light {
@@ -160,7 +160,7 @@ h3 {
 .site-header.is-scrolled {
   background: rgba(247, 243, 236, 0.94);
   backdrop-filter: blur(10px);
-  box-shadow: 0 6px 24px rgba(15, 46, 34, 0.08);
+  box-shadow: 0 6px 24px rgba(21, 23, 28, 0.08);
 }
 
 .brand {
@@ -177,7 +177,7 @@ h3 {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--green-900);
+  background: var(--dark-900);
   color: var(--bronze-300);
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -194,7 +194,7 @@ h3 {
   font-family: var(--font-display);
   font-size: 1.2rem;
   letter-spacing: 0.16em;
-  color: var(--green-900);
+  color: var(--dark-900);
 }
 
 .brand-name small {
@@ -255,7 +255,7 @@ h3 {
   gap: 6px;
   width: 44px;
   height: 44px;
-  border: 1.5px solid var(--green-800);
+  border: 1.5px solid var(--dark-800);
   border-radius: 12px;
   background: transparent;
   cursor: pointer;
@@ -266,7 +266,7 @@ h3 {
   width: 20px;
   height: 2px;
   margin: 0 auto;
-  background: var(--green-800);
+  background: var(--dark-800);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -378,7 +378,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  background: var(--green-900);
+  background: var(--dark-900);
   color: var(--linen);
   border-radius: var(--radius-md);
   padding: 16px 22px;
@@ -394,7 +394,7 @@ h3 {
 
 .hero-card span {
   font-size: 0.8rem;
-  color: var(--green-100);
+  color: var(--dark-100);
 }
 
 /* ---- Pilares (diferenciais) -------------------------------------- */
@@ -468,7 +468,7 @@ h3 {
 
 .properties-section {
   max-width: none;
-  background: var(--green-900);
+  background: var(--dark-900);
   border-radius: 0;
 }
 
@@ -489,7 +489,7 @@ h3 {
 }
 
 .properties-section .section-lead {
-  color: var(--green-100);
+  color: var(--dark-100);
 }
 
 .properties-section .text-link {
@@ -569,10 +569,10 @@ h3 {
 .property-specs li {
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(20, 56, 43, 0.25);
+  border: 1px solid rgba(29, 32, 38, 0.25);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--green-800);
+  color: var(--dark-800);
 }
 
 .property-cta {
@@ -587,7 +587,7 @@ h3 {
 .property-price {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  color: var(--green-900);
+  color: var(--dark-900);
 }
 
 /* ---- Serviços ------------------------------------------------------ */
@@ -690,7 +690,7 @@ h3 {
 }
 
 .about-list strong {
-  color: var(--green-900);
+  color: var(--dark-900);
 }
 
 /* ---- Metodologia ---------------------------------------------------- */
@@ -749,7 +749,7 @@ h3 {
 .testimonial-section blockquote p {
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.6vw, 1.9rem);
-  color: var(--green-900);
+  color: var(--dark-900);
   line-height: 1.35;
   margin-bottom: 18px;
 }
@@ -766,7 +766,7 @@ h3 {
 /* ---- Contato ---------------------------------------------------------- */
 
 .contact-section {
-  background: var(--green-900);
+  background: var(--dark-900);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(32px, 6vw, 72px);
@@ -786,7 +786,7 @@ h3 {
 }
 
 .contact-copy > p {
-  color: var(--green-100);
+  color: var(--dark-100);
   margin-bottom: 28px;
 }
 
@@ -836,7 +836,7 @@ h3 {
   gap: 6px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--green-900);
+  color: var(--dark-900);
 }
 
 .contact-form input,
@@ -846,7 +846,7 @@ h3 {
   font-size: 0.95rem;
   padding: 13px 15px;
   border-radius: 10px;
-  border: 1.5px solid rgba(20, 56, 43, 0.22);
+  border: 1.5px solid rgba(29, 32, 38, 0.22);
   background: var(--white);
   color: var(--ink);
   resize: vertical;
@@ -868,8 +868,8 @@ h3 {
 /* ---- Rodapé ------------------------------------------------------------ */
 
 .site-footer {
-  background: var(--green-950);
-  color: var(--green-100);
+  background: var(--dark-950);
+  color: var(--dark-100);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -897,7 +897,7 @@ h3 {
 }
 
 .footer-meta a {
-  color: var(--green-100);
+  color: var(--dark-100);
   font-size: 0.85rem;
   text-decoration: none;
 }
@@ -933,7 +933,7 @@ h3 {
   font-size: 0.92rem;
   letter-spacing: 0.04em;
   cursor: pointer;
-  box-shadow: 0 14px 34px rgba(176, 116, 44, 0.45);
+  box-shadow: 0 14px 34px rgba(168, 135, 61, 0.45);
   transition: transform 0.18s ease, background 0.18s ease;
 }
 
@@ -956,7 +956,7 @@ h3 {
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(8, 27, 20, 0.4);
+  box-shadow: 0 30px 80px rgba(12, 13, 16, 0.4);
 }
 
 .chatbot.is-open .chatbot-panel {
@@ -970,7 +970,7 @@ h3 {
   justify-content: space-between;
   gap: 12px;
   padding: 16px 20px;
-  background: var(--green-900);
+  background: var(--dark-900);
   color: var(--linen);
 }
 
@@ -981,7 +981,7 @@ h3 {
 
 .chatbot-header span {
   font-size: 0.76rem;
-  color: var(--green-100);
+  color: var(--dark-100);
 }
 
 .chatbot-header button {
@@ -1017,13 +1017,13 @@ h3 {
   align-self: flex-start;
   background: var(--white);
   color: var(--ink);
-  border: 1px solid rgba(20, 56, 43, 0.14);
+  border: 1px solid rgba(29, 32, 38, 0.14);
   border-bottom-left-radius: 4px;
 }
 
 .chat-message.user {
   align-self: flex-end;
-  background: var(--green-800);
+  background: var(--dark-800);
   color: var(--linen);
   border-bottom-right-radius: 4px;
 }
@@ -1054,14 +1054,14 @@ h3 {
   gap: 10px;
   padding: 14px 16px;
   background: var(--white);
-  border-top: 1px solid rgba(20, 56, 43, 0.1);
+  border-top: 1px solid rgba(29, 32, 38, 0.1);
 }
 
 .chatbot-form input {
   flex: 1;
   padding: 11px 14px;
   border-radius: 999px;
-  border: 1.5px solid rgba(20, 56, 43, 0.2);
+  border: 1.5px solid rgba(29, 32, 38, 0.2);
   font-family: var(--font-body);
   font-size: 0.9rem;
 }
@@ -1075,7 +1075,7 @@ h3 {
   padding: 11px 20px;
   border: none;
   border-radius: 999px;
-  background: var(--green-800);
+  background: var(--dark-800);
   color: var(--linen);
   font-weight: 700;
   font-size: 0.88rem;
@@ -1160,7 +1160,7 @@ h3 {
     right: 0;
     background: var(--linen);
     padding: 18px clamp(20px, 5vw, 56px) 28px;
-    box-shadow: 0 24px 40px rgba(15, 46, 34, 0.14);
+    box-shadow: 0 24px 40px rgba(21, 23, 28, 0.14);
     gap: 18px;
   }
 

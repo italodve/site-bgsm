@@ -1,4 +1,4 @@
-# Roteiro de imagens do site Martins Imóveis (Google Flow)
+# Roteiro de imagens do site V Prado Imóveis (Google Flow)
 
 As imagens do site em `public/*.jpg` foram geradas com este roteiro no
 Google Flow. Para regenerar ou trocar alguma, use o script abaixo e
@@ -15,7 +15,7 @@ nome indicado (se vier em PNG, converta ou renomeie).
 
 ```
 Você vai gerar 9 imagens fotorrealistas para o site de uma imobiliária
-brasileira chamada Martins Imóveis. Gere UMA imagem por vez,
+brasileira chamada V Prado Imóveis. Gere UMA imagem por vez,
 na ordem, seguindo o estilo global e o prompt específico de cada uma.
 
 ESTILO GLOBAL (aplique em todas as imagens):
@@ -23,9 +23,9 @@ ESTILO GLOBAL (aplique em todas as imagens):
   full-frame com lente 35mm, foco nítido, leve profundidade de campo.
 - Luz natural quente de fim de tarde (golden hour) ou interiores bem
   iluminados por luz de janela.
-- Paleta da marca: verde-escuro esmeralda, tons de bronze/âmbar e
-  neutros claros (linho, areia, off-white). Vegetação e madeira clara
-  são bem-vindas para reforçar a paleta.
+- Paleta da marca: grafite/cinza-escuro, tons de dourado/champanhe e
+  neutros claros (linho, areia, off-white). Madeira clara e vegetação
+  são bem-vindas como apoio.
 - Contexto brasileiro contemporâneo (arquitetura e urbanismo do Brasil,
   padrão São Paulo e região metropolitana).
 - SEM texto, SEM logotipos, SEM placas legíveis, SEM marca d'água.
@@ -43,7 +43,7 @@ composição vertical elegante.
 
 IMAGEM 2 — sobre.jpg — proporção 4:3 (horizontal)
 Interior de um escritório imobiliário boutique moderno: mesa de reunião
-de madeira clara, cadeiras verde-escuras, parede com plantas, luz
+de madeira clara, cadeiras cinza-escuras, parede com plantas, luz
 natural entrando pela janela; duas pessoas de negócios vistas de
 costas/perfil conversando sobre plantas de imóveis impressas na mesa,
 clima profissional e acolhedor.
@@ -52,7 +52,7 @@ IMAGEM 3 — servico-compra.jpg — proporção 4:3 (horizontal)
 Corretor de imóveis mostrando uma sala de estar ampla e iluminada a um
 casal jovem visto de costas, portas de vidro abertas para um quintal
 verde, interior contemporâneo brasileiro em tons neutros com detalhes
-em verde e madeira, sensação de descoberta do imóvel ideal.
+em dourado e madeira, sensação de descoberta do imóvel ideal.
 
 IMAGEM 4 — servico-venda.jpg — proporção 4:3 (horizontal)
 Mesa de madeira clara vista de cima em ângulo, mãos assinando um
@@ -73,7 +73,7 @@ limpa, céu azul de manhã, fotografia de anúncio imobiliário premium.
 
 IMAGEM 7 — imovel-apartamento.jpg — proporção 4:3 (horizontal)
 Sala de estar de apartamento reformado e compacto, sofá em tom neutro
-com almofadas verde-escuras, piso de madeira clara, varanda com vista
+com almofadas em tons terrosos, piso de madeira clara, varanda com vista
 urbana ao fundo, muita luz natural, decoração minimalista brasileira.
 
 IMAGEM 8 — imovel-comercial.jpg — proporção 4:3 (horizontal)

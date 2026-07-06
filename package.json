@@ -1,7 +1,7 @@
 {
   "name": "site-bgsm",
   "version": "1.0.0",
-  "description": "Plataforma imobiliária integrada da Martins Imóveis: site público + painel de imóveis/leads + agente de IA (Claude), com banco SQLite e deploy único no Railway",
+  "description": "Plataforma imobiliária integrada da V Prado Imóveis: site público + painel de imóveis/leads + agente de IA (Claude), com banco SQLite e deploy único no Railway",
   "type": "module",
   "main": "src/server.js",
   "scripts": {
