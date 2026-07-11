@@ -1,5 +1,5 @@
 /* =========================================================================
- * Painel V Prado Imóveis — cadastro de imóveis e gestão de leads
+ * Painel Imobiliária Vilas Cabral — cadastro de imóveis e gestão de leads
  *
  * Todos os dados vivem no banco de dados do próprio servidor, acessado pela
  * API /painel/api/* (protegida pelo login). Os imóveis cadastrados aqui
@@ -491,13 +491,13 @@ function bindEvents() {
   $("[data-export-properties]").addEventListener("click", () => {
     const header = ["Título", "Tipo", "Finalidade", "Status", "Preço", "Bairro", "Cidade", "Quartos", "Banheiros", "Vagas", "Área", "Descrição"];
     const rows = state.properties.map((p) => [p.titulo, p.tipo, p.finalidade, p.status, p.preco, p.bairro, p.cidade, p.quartos, p.banheiros, p.vagas, p.area, p.descricao]);
-    downloadCsv("imoveis-vprado.csv", [header, ...rows]);
+    downloadCsv("imoveis-vilascabral.csv", [header, ...rows]);
   });
 
   $("[data-export-leads]").addEventListener("click", () => {
     const header = ["Data", "Dados", "Origem", "Status"];
     const rows = state.leads.map((l) => [l.createdAt, leadDataText(l.fields), l.source, LEAD_STATUS_LABEL[l.status]]);
-    downloadCsv("leads-vprado.csv", [header, ...rows]);
+    downloadCsv("leads-vilascabral.csv", [header, ...rows]);
   });
 }
 
