@@ -572,9 +572,10 @@ app.use((err, _req, res, next) => {
   }
 
   // Erros com status próprio (ex.: 404 de arquivo inexistente em /uploads).
+  // Mensagem genérica: a original pode expor detalhes internos do parser.
   const status = Number(err.statusCode || err.status);
   if (status >= 400 && status < 500) {
-    return res.status(status).json({ error: err.message || 'Request error' });
+    return res.status(status).json({ error: status === 404 ? 'Not found' : 'Request error' });
   }
 
   return res.status(400).json({ error: 'Bad request' });

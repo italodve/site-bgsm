@@ -11,7 +11,7 @@ const chatbotInput = document.querySelector("[data-chatbot-input]");
 const chatbotQuestion = document.querySelector("[data-chatbot-question]");
 // WhatsApp da Imobiliária Vilas Cabral (somente dígitos, com DDI). Se mudar,
 // mantenha igual ao WHATSAPP_EMPRESA do backend.
-const numeroEmpresa = "5511971331539";
+const numeroEmpresa = "5511959426400";
 
 // URL base do backend ai-agent. Vazio = mesma origem (o site e a API sao
 // servidos pelo mesmo servidor no monorepo). Preencha apenas se a API

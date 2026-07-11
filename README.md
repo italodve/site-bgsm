@@ -30,7 +30,7 @@ mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 
 ## Personalização pendente
 
-- **WhatsApp**: número oficial `+55 11 97133-1539` já aplicado. Para
+- **WhatsApp**: número oficial `+55 11 95942-6400` já aplicado. Para
   trocar no futuro, ajuste `public/script.js` (constante `numeroEmpresa`),
   os links `wa.me` de `public/index.html` e `WHATSAPP_EMPRESA` no `.env`.
 - **Imagens**: as fotos em `public/*.jpg` foram geradas por IA com o
