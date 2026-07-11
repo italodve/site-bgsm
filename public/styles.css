@@ -1,6 +1,6 @@
 /* ============================================================
-   V Prado Imóveis — folha de estilos do site público
-   Identidade: grafite profundo + dourado (logo V Prado) sobre linho claro,
+   Imobiliária Vilas Cabral — folha de estilos do site público
+   Identidade: grafite profundo + dourado (monograma VC) sobre linho claro,
    títulos em serifa (Fraunces) e texto em Manrope.
    ============================================================ */
 
@@ -180,8 +180,9 @@ h3 {
   background: var(--dark-900);
   color: var(--bronze-300);
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .brand-name {

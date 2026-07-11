@@ -9,7 +9,7 @@ const chatbotBody = document.querySelector("[data-chatbot-body]");
 const chatbotForm = document.querySelector("[data-chatbot-form]");
 const chatbotInput = document.querySelector("[data-chatbot-input]");
 const chatbotQuestion = document.querySelector("[data-chatbot-question]");
-// WhatsApp da V Prado Imóveis (somente dígitos, com DDI). Se mudar,
+// WhatsApp da Imobiliária Vilas Cabral (somente dígitos, com DDI). Se mudar,
 // mantenha igual ao WHATSAPP_EMPRESA do backend.
 const numeroEmpresa = "5511971331539";
 
@@ -77,7 +77,7 @@ form?.addEventListener("submit", (event) => {
   const mensagem = data.get("mensagem") || "";
 
   const texto = [
-    "Olá, equipe da V Prado Imóveis!",
+    "Olá, equipe da Imobiliária Vilas Cabral!",
     `Meu nome é ${nome}.`,
     `Meu telefone é ${telefone}.`,
     `Tenho interesse em: ${interesse}.`,
@@ -101,7 +101,7 @@ const generateSessionId = () => {
 // Persistência no navegador: lembra a sessão e os dados do visitante para
 // não repetir perguntas em visitas futuras. Protegido para casos em que o
 // localStorage está indisponível (modo privado/bloqueado).
-const STORAGE_KEY = "vprado_chat";
+const STORAGE_KEY = "vilascabral_chat";
 const loadStored = () => {
   try {
     return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}") || {};
@@ -230,7 +230,7 @@ const composeLeadMessage = (fields) => {
   const servico = map["serviço"] || map["servico"];
   const contato = map["contato"] || map["whatsapp"] || map["telefone"];
 
-  const frases = ["Olá, equipe da V Prado Imóveis!"];
+  const frases = ["Olá, equipe da Imobiliária Vilas Cabral!"];
   frases.push(nome ? `Meu nome é ${nome} e vim pelo chat do site.` : "Vim pelo chat do site.");
 
   if (interesse) {
@@ -268,7 +268,7 @@ const buildWhatsappUrl = (originalUrl, leadFields) => {
     const respostas = chatState.transcript
       .filter((entry) => entry.role === "cliente")
       .map((entry) => entry.text);
-    texto = "Olá, equipe da V Prado Imóveis! Vim pelo chat do site e gostaria de conversar sobre um imóvel.";
+    texto = "Olá, equipe da Imobiliária Vilas Cabral! Vim pelo chat do site e gostaria de conversar sobre um imóvel.";
     if (respostas.length > 0) texto += ` Informei o seguinte: ${respostas.join("; ")}.`;
   }
 
@@ -393,7 +393,7 @@ const startChat = () => {
         ? `Olá de novo, ${nome}! Que bom te ver por aqui. Quer continuar de onde paramos ou tratar de outra coisa?`
         : chatState.returning
           ? "Olá de novo! Quer continuar nossa conversa sobre o imóvel ou tratar de algo novo?"
-          : "Olá! Sou o assistente da V Prado Imóveis. Quer comprar, vender ou alugar um imóvel?";
+          : "Olá! Sou o assistente da Imobiliária Vilas Cabral. Quer comprar, vender ou alugar um imóvel?";
   }
   chatbotInput?.focus();
 };
@@ -448,7 +448,7 @@ chatbotForm?.addEventListener("submit", async (event) => {
         .join(" ")
         .replace(/\s{2,}/g, " ")
         .trim();
-      const message = addChatMessage(cleanText || "Vou te encaminhar para o WhatsApp da V Prado Imóveis.", "bot");
+      const message = addChatMessage(cleanText || "Vou te encaminhar para o WhatsApp da Imobiliária Vilas Cabral.", "bot");
       appendWhatsappButton(message, url);
       // Abre o WhatsApp automaticamente (pode ser bloqueado pelo navegador;
       // nesse caso o botão acima garante o acesso).
@@ -459,7 +459,7 @@ chatbotForm?.addEventListener("submit", async (event) => {
   } catch (error) {
     typing?.remove();
     const fallback = addChatMessage(
-      "Tive um problema para responder agora. Você pode falar direto com a equipe da V Prado Imóveis pelo WhatsApp.",
+      "Tive um problema para responder agora. Você pode falar direto com a equipe da Imobiliária Vilas Cabral pelo WhatsApp.",
       "bot error"
     );
 

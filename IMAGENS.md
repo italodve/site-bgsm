@@ -1,4 +1,4 @@
-# Roteiro de imagens do site V Prado Imóveis (Google Flow)
+# Roteiro de imagens do site Imobiliária Vilas Cabral (Google Flow)
 
 As imagens do site em `public/*.jpg` foram geradas com este roteiro no
 Google Flow. Para regenerar ou trocar alguma, use o script abaixo e
@@ -15,7 +15,7 @@ nome indicado (se vier em PNG, converta ou renomeie).
 
 ```
 Você vai gerar 9 imagens fotorrealistas para o site de uma imobiliária
-brasileira chamada V Prado Imóveis. Gere UMA imagem por vez,
+brasileira chamada Imobiliária Vilas Cabral. Gere UMA imagem por vez,
 na ordem, seguindo o estilo global e o prompt específico de cada uma.
 
 ESTILO GLOBAL (aplique em todas as imagens):
@@ -27,7 +27,7 @@ ESTILO GLOBAL (aplique em todas as imagens):
   neutros claros (linho, areia, off-white). Madeira clara e vegetação
   são bem-vindas como apoio.
 - Contexto brasileiro contemporâneo (arquitetura e urbanismo do Brasil,
-  padrão São Paulo e região metropolitana).
+  padrão região metropolitana de São Paulo, cidades como Itapevi).
 - SEM texto, SEM logotipos, SEM placas legíveis, SEM marca d'água.
 - Pessoas apenas quando o prompt pedir, sempre de costas, de lado ou
   desfocadas — sem rosto em close identificável.

@@ -1,13 +1,13 @@
-# Site V Prado Imóveis — Plataforma Imobiliária Integrada
+# Site Imobiliária Vilas Cabral — Plataforma Imobiliária Integrada
 
-Site da **V Prado Imóveis**: site público + painel de
+Site da **Imobiliária Vilas Cabral**: site público + painel de
 imóveis/leads + agente de IA (Claude) em **um único serviço com front-end e
 back-end integrados**. Tudo vive num banco de dados próprio (SQLite) no
 mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 
 | Rota | O que é |
 | --- | --- |
-| `/` | Site público da V Prado Imóveis, com chatbot |
+| `/` | Site público da Imobiliária Vilas Cabral, com chatbot |
 | `/painel` | Dashboard: cadastra imóveis no site e recebe os leads do agente (login) |
 | `/api/imoveis` | API pública que alimenta os cards de imóveis do site |
 | `/chat`, `/chat/session`, `/lead`, `/health` | API do agente de IA (Claude) |
@@ -36,8 +36,11 @@ mesmo deploy — sem planilhas nem serviços externos além da API da Anthropic.
 - **Imagens**: as fotos em `public/*.jpg` foram geradas por IA com o
   roteiro de [`IMAGENS.md`](IMAGENS.md). Para trocar alguma, substitua o
   arquivo mantendo o mesmo nome.
-- **Textos**: cidade/região de atuação estão genéricos ("São Paulo e
-  região") em `public/index.html` e no prompt do agente (`src/agent.js`).
+- **Textos**: cidade/região de atuação já apontam para Itapevi e região
+  oeste da Grande SP (dados da ficha do Google Maps:
+  https://maps.app.goo.gl/2usv5HYVbec3EUPk9). Endereço completo, horário
+  e CRECI podem ser acrescentados em `public/index.html` e
+  `src/agent.js` quando forem confirmados.
 
 ## Stack
 
@@ -88,7 +91,7 @@ O banco é criado automaticamente em `./data/imob.db` na primeira execução.
    - `CHAT_SESSION_SECRET` — segredo longo e aleatório
    - `PAINEL_USER` / `PAINEL_PASSWORD` — credenciais do painel
      (`PAINEL_PASSWORD` é obrigatória; sem ela o painel fica bloqueado)
-   - `WHATSAPP_EMPRESA` — WhatsApp oficial da V Prado Imóveis (dígitos com DDI)
+   - `WHATSAPP_EMPRESA` — WhatsApp oficial da Imobiliária Vilas Cabral (dígitos com DDI)
    - `DATA_DIR=/data` — aponta o banco para o Volume
 4. O Railway detecta Node.js e usa o `railway.json` (start `npm start`,
    healthcheck em `/health`).
