@@ -498,10 +498,92 @@ h3 {
   width: fit-content;
 }
 
+/* Barra de busca de imóveis (sobre o painel escuro) */
+.property-search {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)) auto;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.search-field {
+  display: grid;
+  gap: 6px;
+}
+
+.search-field span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-100);
+}
+
+.property-search input,
+.property-search select {
+  width: 100%;
+  background: var(--dark-800);
+  border: 1px solid var(--dark-700);
+  color: var(--linen);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.property-search input::placeholder {
+  color: rgba(217, 219, 224, 0.45);
+}
+
+.property-search input:focus,
+.property-search select:focus {
+  outline: none;
+  border-color: var(--bronze-300);
+}
+
+.property-search select option {
+  background: var(--dark-800);
+  color: var(--linen);
+}
+
+.search-clear {
+  padding: 11px 20px;
+  border: 1px solid var(--dark-700);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dark-100);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.search-clear:hover {
+  color: var(--linen);
+  border-color: var(--bronze-300);
+}
+
+.properties-empty {
+  margin-top: 8px;
+  padding: 26px 0 4px;
+  color: var(--dark-100);
+}
+
+.properties-empty a {
+  color: var(--bronze-300);
+  font-weight: 700;
+}
+
 .properties {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+
+.property-card.is-filtered-out {
+  display: none;
 }
 
 .property-card {
@@ -1131,6 +1213,14 @@ h3 {
   .properties,
   .services {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .property-search {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-field-grow {
+    grid-column: 1 / -1;
   }
 
   .method-grid {

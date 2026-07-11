@@ -549,10 +549,84 @@ const carregarImoveis = async () => {
     // Sem imóveis cadastrados: mantém os cards de exemplo já presentes no HTML.
     if (!imoveis.length) return;
     container.innerHTML = imoveis.map(imovelCardHtml).join("");
+    // Reaplica a busca ativa sobre os cards recém-renderizados.
+    aplicarFiltros();
   } catch (error) {
     // Falha na leitura (API fora do ar, offline etc.): preserva o fallback.
     console.warn("Não foi possível carregar os imóveis:", error?.message || error);
   }
 };
+
+// ---- Busca de imóveis (filtra os cards no cliente) ----
+//
+// Funciona tanto sobre os cards vindos da API quanto sobre os de fallback,
+// porque lê as informações direto do DOM de cada .property-card.
+const searchForm = document.querySelector("[data-search-form]");
+const searchText = document.querySelector("[data-search-text]");
+const searchFinalidade = document.querySelector("[data-search-finalidade]");
+const searchTipo = document.querySelector("[data-search-tipo]");
+const searchValor = document.querySelector("[data-search-valor]");
+const searchEmpty = document.querySelector("[data-search-empty]");
+
+// Minúsculas e sem acentos, para "Itapevi" casar com "itapevi" e "locação" com "locacao".
+const normalizar = (str) =>
+  String(str || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+// Deduz o tipo do imóvel a partir da linha de localização do card
+// ("Casa · Itapevi, SP" → casa), com as mesmas famílias de fotoPorTipo.
+const tipoDoCard = (card) => {
+  const local = normalizar(card.querySelector(".property-location")?.textContent.split("·")[0]);
+  if (local.includes("apart") || local.includes("studio") || local.includes("kitnet")) return "apartamento";
+  if (/comerc|sala|loja|galp|escrit/.test(local)) return "comercial";
+  return "casa";
+};
+
+// Preço numérico do card, ou null quando é "Sob consulta".
+const precoDoCard = (card) => {
+  const digits = String(card.querySelector(".property-price")?.textContent || "").replace(/[^\d]/g, "");
+  return digits ? Number(digits) : null;
+};
+
+const aplicarFiltros = () => {
+  const container = document.querySelector("[data-properties]");
+  if (!container) return;
+
+  const q = normalizar(searchText?.value.trim());
+  const finalidade = searchFinalidade?.value || "";
+  const tipo = searchTipo?.value || "";
+  const valorMax = Number(String(searchValor?.value || "").replace(/[^\d]/g, "")) || 0;
+
+  let visiveis = 0;
+  for (const card of container.querySelectorAll(".property-card")) {
+    const tag = normalizar(card.querySelector(".property-tag")?.textContent);
+    let ok = true;
+
+    if (q) ok = normalizar(card.textContent).includes(q);
+    if (ok && finalidade) ok = finalidade === "locacao" ? /loca|alug/.test(tag) : tag.includes("venda");
+    if (ok && tipo) ok = tipoDoCard(card) === tipo;
+    if (ok && valorMax) {
+      const preco = precoDoCard(card);
+      ok = preco !== null && preco <= valorMax;
+    }
+
+    card.classList.toggle("is-filtered-out", !ok);
+    if (ok) visiveis += 1;
+  }
+
+  if (searchEmpty) searchEmpty.hidden = visiveis > 0;
+};
+
+searchForm?.addEventListener("submit", (event) => event.preventDefault());
+searchForm?.addEventListener("reset", () => {
+  // Espera o reset limpar os campos antes de refiltrar.
+  window.setTimeout(aplicarFiltros, 0);
+});
+searchText?.addEventListener("input", aplicarFiltros);
+searchValor?.addEventListener("input", aplicarFiltros);
+searchFinalidade?.addEventListener("change", aplicarFiltros);
+searchTipo?.addEventListener("change", aplicarFiltros);
 
 carregarImoveis();
