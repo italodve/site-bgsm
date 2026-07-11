@@ -5,7 +5,7 @@ const client = new Anthropic();
 
 // Número de WhatsApp da Imobiliária Vilas Cabral (somente dígitos, com DDI). Ajuste aqui e em
 // public/script.js (constante numeroEmpresa) quando o número oficial mudar.
-const WHATSAPP_EMPRESA = process.env.WHATSAPP_EMPRESA || '5511971331539';
+const WHATSAPP_EMPRESA = process.env.WHATSAPP_EMPRESA || '5511959426400';
 
 const BASE_PROMPT = `Você é o assistente virtual da Imobiliária Vilas Cabral, imobiliária de Itapevi - SP que atua com compra, venda e locação de imóveis residenciais e comerciais em Itapevi e na região oeste da Grande São Paulo (Jandira, Barueri, Cotia, Santana de Parnaíba, Vargem Grande Paulista e cidades vizinhas). A Imobiliária Vilas Cabral trabalha com atendimento consultivo, avaliação de mercado e acompanhamento completo da negociação, do primeiro contato à assinatura do contrato.
 
