@@ -120,32 +120,57 @@
         -->
         <div class="properties-panel" data-reveal>
           <form class="property-search" data-search-form aria-label="Buscar imóveis">
-            <label class="search-field search-field-grow">
-              <span>Busca</span>
-              <input type="search" name="q" placeholder="Bairro, cidade ou palavra-chave" data-search-text />
-            </label>
-            <label class="search-field">
-              <span>Finalidade</span>
-              <select name="finalidade" data-search-finalidade>
-                <option value="">Todas</option>
-                <option value="venda">Venda</option>
-                <option value="locacao">Locação</option>
-              </select>
-            </label>
-            <label class="search-field">
-              <span>Tipo</span>
-              <select name="tipo" data-search-tipo>
-                <option value="">Todos</option>
-                <option value="casa">Casa</option>
-                <option value="apartamento">Apartamento</option>
-                <option value="comercial">Comercial</option>
-              </select>
-            </label>
-            <label class="search-field">
-              <span>Valor até</span>
-              <input type="text" inputmode="numeric" name="valor" placeholder="R$ 500.000" data-search-valor />
-            </label>
-            <button class="search-clear" type="reset">Limpar</button>
+            <div class="search-tabs" role="tablist" aria-label="Finalidade">
+              <button type="button" class="search-tab is-active" data-search-finalidade-tab="" aria-pressed="true">Todos</button>
+              <button type="button" class="search-tab" data-search-finalidade-tab="venda" aria-pressed="false">Comprar</button>
+              <button type="button" class="search-tab" data-search-finalidade-tab="locacao" aria-pressed="false">Alugar</button>
+            </div>
+
+            <div class="search-fields">
+              <label class="search-field search-field-grow">
+                <span>O que você procura?</span>
+                <input type="search" name="q" placeholder="Ex.: casa com quintal, sobrado…" data-search-text />
+              </label>
+              <label class="search-field">
+                <span>Tipo</span>
+                <select name="tipo" data-search-tipo>
+                  <option value="">Todos</option>
+                  <option value="casa">Casa</option>
+                  <option value="apartamento">Apartamento</option>
+                  <option value="comercial">Comercial</option>
+                </select>
+              </label>
+              <label class="search-field">
+                <span>Bairro</span>
+                <select name="bairro" data-search-bairro>
+                  <option value="">Todos</option>
+                </select>
+              </label>
+              <label class="search-field">
+                <span>Quartos</span>
+                <select name="quartos" data-search-quartos>
+                  <option value="">Todos</option>
+                  <option value="1">1+</option>
+                  <option value="2">2+</option>
+                  <option value="3">3+</option>
+                  <option value="4">4+</option>
+                </select>
+              </label>
+              <label class="search-field">
+                <span>Preço até</span>
+                <select name="valor" data-search-valor>
+                  <option value="">Sem limite</option>
+                  <option value="2000">R$ 2.000</option>
+                  <option value="3000">R$ 3.000</option>
+                  <option value="5000">R$ 5.000</option>
+                  <option value="300000">R$ 300.000</option>
+                  <option value="500000">R$ 500.000</option>
+                  <option value="750000">R$ 750.000</option>
+                  <option value="1000000">R$ 1.000.000</option>
+                </select>
+              </label>
+              <button class="search-submit" type="submit">Buscar</button>
+            </div>
           </form>
 
           <div class="properties" data-properties>

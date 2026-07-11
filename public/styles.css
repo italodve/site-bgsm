@@ -498,71 +498,105 @@ h3 {
   width: fit-content;
 }
 
-/* Barra de busca de imóveis (sobre o painel escuro) */
+/* Barra de busca de imóveis: cartão claro flutuando sobre o painel escuro */
 .property-search {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px 22px;
+  margin-bottom: 30px;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.35);
+}
+
+.search-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.search-tab {
+  padding: 9px 24px;
+  border: 1px solid var(--linen-soft);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.search-tab:hover {
+  border-color: var(--bronze-500);
+}
+
+.search-tab.is-active {
+  background: var(--dark-900);
+  border-color: var(--dark-900);
+  color: var(--white);
+}
+
+.search-fields {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)) auto;
+  grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)) auto;
   gap: 14px;
   align-items: end;
-  margin-bottom: 28px;
 }
 
 .search-field {
   display: grid;
-  gap: 6px;
+  gap: 7px;
 }
 
 .search-field span {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.7rem;
+  font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--dark-100);
+  color: var(--dark-800);
 }
 
 .property-search input,
 .property-search select {
   width: 100%;
-  background: var(--dark-800);
-  border: 1px solid var(--dark-700);
-  color: var(--linen);
-  border-radius: 10px;
-  padding: 11px 12px;
+  background: var(--white);
+  border: 1px solid #dcd6c9;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 12px 13px;
   font: inherit;
   font-size: 0.92rem;
 }
 
 .property-search input::placeholder {
-  color: rgba(217, 219, 224, 0.45);
+  color: var(--ink-soft);
+  opacity: 0.7;
 }
 
 .property-search input:focus,
 .property-search select:focus {
   outline: none;
-  border-color: var(--bronze-300);
+  border-color: var(--bronze-500);
+  box-shadow: 0 0 0 3px rgba(189, 156, 75, 0.18);
 }
 
-.property-search select option {
-  background: var(--dark-800);
-  color: var(--linen);
-}
-
-.search-clear {
-  padding: 11px 20px;
-  border: 1px solid var(--dark-700);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--dark-100);
+.search-submit {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bronze-500);
+  color: var(--dark-900);
   font: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.search-clear:hover {
-  color: var(--linen);
-  border-color: var(--bronze-300);
+.search-submit:hover {
+  background: var(--bronze-600);
+  transform: translateY(-1px);
 }
 
 .properties-empty {
@@ -1215,11 +1249,12 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .property-search {
+  .search-fields {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .search-field-grow {
+  .search-field-grow,
+  .search-submit {
     grid-column: 1 / -1;
   }
 

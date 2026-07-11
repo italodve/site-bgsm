@@ -549,7 +549,9 @@ const carregarImoveis = async () => {
     // Sem imóveis cadastrados: mantém os cards de exemplo já presentes no HTML.
     if (!imoveis.length) return;
     container.innerHTML = imoveis.map(imovelCardHtml).join("");
-    // Reaplica a busca ativa sobre os cards recém-renderizados.
+    // Atualiza as opções de bairro e reaplica a busca ativa sobre os
+    // cards recém-renderizados.
+    atualizarBairros();
     aplicarFiltros();
   } catch (error) {
     // Falha na leitura (API fora do ar, offline etc.): preserva o fallback.
@@ -563,10 +565,15 @@ const carregarImoveis = async () => {
 // porque lê as informações direto do DOM de cada .property-card.
 const searchForm = document.querySelector("[data-search-form]");
 const searchText = document.querySelector("[data-search-text]");
-const searchFinalidade = document.querySelector("[data-search-finalidade]");
+const searchTabs = document.querySelectorAll("[data-search-finalidade-tab]");
 const searchTipo = document.querySelector("[data-search-tipo]");
+const searchBairro = document.querySelector("[data-search-bairro]");
+const searchQuartos = document.querySelector("[data-search-quartos]");
 const searchValor = document.querySelector("[data-search-valor]");
 const searchEmpty = document.querySelector("[data-search-empty]");
+
+// Finalidade escolhida nas abas Todos/Comprar/Alugar ("", "venda" ou "locacao").
+let finalidadeAtiva = "";
 
 // Minúsculas e sem acentos, para "Itapevi" casar com "itapevi" e "locação" com "locacao".
 const normalizar = (str) =>
@@ -590,14 +597,51 @@ const precoDoCard = (card) => {
   return digits ? Number(digits) : null;
 };
 
+// Localização do card ("Casa · Centro, Itapevi" → "Centro, Itapevi").
+const bairroDoCard = (card) => {
+  const local = card.querySelector(".property-location")?.textContent || "";
+  const partes = local.split("·");
+  return (partes[1] || partes[0] || "").trim();
+};
+
+// Número de quartos do card, lido das specs ("3 quartos"), ou null.
+const quartosDoCard = (card) => {
+  const match = (card.textContent || "").match(/(\d+)\s*quartos?/i);
+  return match ? Number(match[1]) : null;
+};
+
+// Preenche o select de bairros com as localizações dos imóveis exibidos,
+// preservando a seleção atual quando o catálogo é recarregado.
+const atualizarBairros = () => {
+  const container = document.querySelector("[data-properties]");
+  if (!container || !searchBairro) return;
+
+  const atual = searchBairro.value;
+  const bairros = new Set();
+  for (const card of container.querySelectorAll(".property-card")) {
+    const bairro = bairroDoCard(card);
+    if (bairro) bairros.add(bairro);
+  }
+
+  searchBairro.innerHTML = '<option value="">Todos</option>';
+  for (const bairro of [...bairros].sort((a, b) => a.localeCompare(b, "pt-BR"))) {
+    const option = document.createElement("option");
+    option.value = bairro;
+    option.textContent = bairro;
+    searchBairro.appendChild(option);
+  }
+  if ([...searchBairro.options].some((o) => o.value === atual)) searchBairro.value = atual;
+};
+
 const aplicarFiltros = () => {
   const container = document.querySelector("[data-properties]");
   if (!container) return;
 
   const q = normalizar(searchText?.value.trim());
-  const finalidade = searchFinalidade?.value || "";
   const tipo = searchTipo?.value || "";
-  const valorMax = Number(String(searchValor?.value || "").replace(/[^\d]/g, "")) || 0;
+  const bairro = searchBairro?.value || "";
+  const quartosMin = Number(searchQuartos?.value) || 0;
+  const valorMax = Number(searchValor?.value) || 0;
 
   let visiveis = 0;
   for (const card of container.querySelectorAll(".property-card")) {
@@ -605,8 +649,13 @@ const aplicarFiltros = () => {
     let ok = true;
 
     if (q) ok = normalizar(card.textContent).includes(q);
-    if (ok && finalidade) ok = finalidade === "locacao" ? /loca|alug/.test(tag) : tag.includes("venda");
+    if (ok && finalidadeAtiva) ok = finalidadeAtiva === "locacao" ? /loca|alug/.test(tag) : tag.includes("venda");
     if (ok && tipo) ok = tipoDoCard(card) === tipo;
+    if (ok && bairro) ok = bairroDoCard(card) === bairro;
+    if (ok && quartosMin) {
+      const quartos = quartosDoCard(card);
+      ok = quartos !== null && quartos >= quartosMin;
+    }
     if (ok && valorMax) {
       const preco = precoDoCard(card);
       ok = preco !== null && preco <= valorMax;
@@ -619,14 +668,26 @@ const aplicarFiltros = () => {
   if (searchEmpty) searchEmpty.hidden = visiveis > 0;
 };
 
-searchForm?.addEventListener("submit", (event) => event.preventDefault());
-searchForm?.addEventListener("reset", () => {
-  // Espera o reset limpar os campos antes de refiltrar.
-  window.setTimeout(aplicarFiltros, 0);
+searchForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  aplicarFiltros();
+});
+searchTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    finalidadeAtiva = tab.getAttribute("data-search-finalidade-tab") || "";
+    searchTabs.forEach((t) => {
+      const ativa = t === tab;
+      t.classList.toggle("is-active", ativa);
+      t.setAttribute("aria-pressed", String(ativa));
+    });
+    aplicarFiltros();
+  });
 });
 searchText?.addEventListener("input", aplicarFiltros);
-searchValor?.addEventListener("input", aplicarFiltros);
-searchFinalidade?.addEventListener("change", aplicarFiltros);
 searchTipo?.addEventListener("change", aplicarFiltros);
+searchBairro?.addEventListener("change", aplicarFiltros);
+searchQuartos?.addEventListener("change", aplicarFiltros);
+searchValor?.addEventListener("change", aplicarFiltros);
 
+atualizarBairros();
 carregarImoveis();
